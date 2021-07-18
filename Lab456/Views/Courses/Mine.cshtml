@@ -43,13 +43,16 @@
                 bootbox.confirm("Are you sure to cancel?", function () {
                     $.ajax
                         ({
-                            url: "/api/courses/" + link.attr("data-course-id"), method: "DELETE"
+                            url: "/Controllers/Api/courses/" + link.attr("data-course-id"), method: "DELETE"
                         })
                         .done(function () {
                             link.parents("li").fadeOut(function () {
                                 $(this).remove();
                             });
+                        }).fail(funtion(){
+                            alert("Something Failed");
                         });
+                
                 });
             });
         });
