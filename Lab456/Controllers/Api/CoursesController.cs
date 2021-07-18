@@ -22,14 +22,14 @@ namespace Lab456.Controllers.Api
         [HttpDelete]
         public IHttpActionResult Cancel(int id)
         {
-            var userId = User.Identity.GetUserName();
+            var userId = User.Identity.GetUserId();
             var course = _dbContext.Courses.Single(c => c.Id == id && c.LecturerID == userId);
-            if(course.IsCanceled)
+            if(course.IsCanceled == false)
             {
-                return NotFound();
+                course.IsCanceled = true;
+                _dbContext.SaveChanges();
             }
-            course.IsCanceled = true;
-            _dbContext.SaveChanges();
+            
 
             return Ok();
         }
