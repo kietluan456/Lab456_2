@@ -5,8 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
-using System.Web.Mvc;
-using HttpDeleteAttribute = System.Web.Http.HttpDeleteAttribute;
+using System.Net;
+using System.Net.Http;
 
 namespace Lab456.Controllers.Api
 {
